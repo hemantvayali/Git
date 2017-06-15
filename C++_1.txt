@@ -1,0 +1,34 @@
+/*
+ * Write a program that reads each line in a file, 
+ * reverses its characters, and writes the resulting
+ * line to another file.
+ */
+
+ The code BEGINS from here:
+ 
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    // Input file to read
+    ifstream inFile("input.txt");
+
+    // Output file to write
+    ofstream outFile("output.txt");
+
+    string sRead;
+
+    // Read each line and write it in reverse in output File
+    while(getline(inFile,sRead))
+        outFile << string(sRead.rbegin(), sRead.rend()) << '\n';
+
+    cout << "\nProgram has executed successfully!";
+    cout << endl;
+    return 0;
+}
+ 
+ The code ENDS here!

@@ -1,0 +1,48 @@
+package piglatin;
+
+import java.util.Scanner;
+
+public class PigLatin
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        final String vowels = "aeiouAEIOU";
+        
+        System.out.println("Welcome to the Pig Latin Translator!");
+        System.out.println();
+        
+        System.out.print("Please enter a word: ");
+        String ordWord = input.nextLine();
+        
+        // While the user enters any word other than 'Q'
+        while (!ordWord.equalsIgnoreCase("q"))
+        {
+            String beforVowel = "";
+            
+            int cut = 0;
+            
+            // To get the substring
+            while (cut < ordWord.length() && !vowels.contains("" + ordWord.charAt(cut)))
+            {
+                beforVowel += ordWord.charAt(cut);
+                cut++;
+            }
+            if (cut == 0)
+            {
+                cut = 0;
+                ordWord += "w";
+            }
+            // Making the final string
+            String finalString = ordWord.substring(cut) + beforVowel + "ay";
+            System.out.println("The translation is: " + finalString);
+            
+            // Re-prompt user to enter another word or quit
+            System.out.print("\nEnter another word to be translated (or press Q to quit): ");
+            ordWord = input.nextLine();
+        }
+        
+        // Close Scanner
+        input.close();
+    }
+}

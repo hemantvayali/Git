@@ -1,0 +1,64 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+// Signature of the required function
+
+// Main Function
+int main()
+{
+    // File Streams
+    ifstream inFile("value.txt");
+    ofstream outFile("answer.txt");
+
+    int num1;
+    int num2;
+
+    string message;
+
+    // Read the file until we reach the end of the file
+    while (inFile >> num1 >> num2){
+
+        // If both numbers are positive
+        if(isPositive(num1) && isPositive(num2)){
+            message = "Both values are positive.";
+        }
+
+        else{
+            // If one of the numbers is positive
+            if(isPositive(num1) || isPositive(num2)){
+                message = "One value is positive and the other is negative.";
+            }
+            // If neither is positive
+            else
+                message = "Neither value is positive.";
+        }
+
+        // Write content to the output file in desired format.
+        outFile << num1 << "\t" << num2 << endl;
+        outFile << message << endl;
+    }
+
+    cout << "The program has finished executing successfully..." << endl;
+    // Closing the file streams
+    inFile.close();
+    outFile.close();
+
+    cout << endl;
+    return 0;
+}
+
+/*
+ * Function - isPositive
+ * @param int - number to be checked
+ * Checks if the passed number is positive or not
+ * Returns boolean value based on the result
+ */
+bool isPositive(int n)
+{
+    if(n < 0)
+        return false;
+    else
+        return true;
+}
