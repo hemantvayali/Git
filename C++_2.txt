@@ -4,6 +4,7 @@
 using namespace std;
 
 // Signature of the required function
+bool isPositive(int);
 
 // Main Function
 int main()
